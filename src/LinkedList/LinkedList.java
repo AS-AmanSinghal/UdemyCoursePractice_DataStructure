@@ -100,27 +100,6 @@ public class LinkedList {
         return list;
     }
 
-    public LinkedList deleteByIndex(LinkedList list, int index) {
-        Node node = list.head;
-        int counter = 0;
-        if (index == 0) {
-            list.head = node.next;
-        } else {
-            while (counter != (index - 1)) {
-                if (node != null) {
-                    node = node.next;
-                    counter++;
-                } else {
-                    System.out.println("Index Not Found");
-                    break;
-                }
-            }
-            if (node != null)
-                node.next = node.next.next;
-        }
-        return list;
-    }
-
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
         list.insert(list, 5);
@@ -137,7 +116,37 @@ public class LinkedList {
         list.printList(list);
         list.deleteByIndex(list, 5);
         list.printList(list);
+        list.delete(list, 5);
+        list.printList(list);
         list.deleteByIndex(list, 5);
         list.printList(list);
+        list.deleteByIndex(list, 4);
+        list.printList(list);
+    }
+
+    public LinkedList deleteByIndex(LinkedList list, int index) {
+        Node node = list.head;
+        int counter = 0;
+        if (index == 0) {
+            list.head = node.next;
+        } else {
+            while (counter != (index - 1)) {
+                if (node != null) {
+                    node = node.next;
+                } else {
+                    System.out.println("Index Not Found");
+                    break;
+                }
+                counter++;
+            }
+            if (node != null) {
+                if (node.next != null) {
+                    node.next = node.next.next;
+                } else
+                    System.out.println("Index Not Found");
+            } else
+                System.out.println("Not FOunt");
+        }
+        return list;
     }
 }
