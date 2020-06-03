@@ -4,14 +4,30 @@ public class LinkedList {
 
     Node head;
 
-    class Node {
-        int value;
-        Node next;
-
-        public Node(int value) {
-            this.value = value;
-            this.next = null;
-        }
+    public static void main(String[] args) {
+        LinkedList list = new LinkedList();
+        list.insert(list, 5);
+        list.insert(list, 6);
+        list.printList(list);
+        list.insertAtBeginning(list, 4);
+        list.insertAtBeginning(list, 8);
+        list.printList(list);
+        list.insertAtIndex(list, 2, 2);
+        list.printList(list);
+        list.insertAtIndex(list, 100, 10);
+        list.printList(list);
+        list.insertAtIndex(list, 4, 13);
+        list.printList(list);
+        list.deleteByIndex(list, 5);
+        list.printList(list);
+        list.delete(list, 5);
+        list.printList(list);
+        list.deleteByIndex(list, 5);
+        list.printList(list);
+        list.deleteByIndex(list, 4);
+        list.printList(list);
+        list.reverse(list);
+        list.printList(list);
     }
 
     public LinkedList insert(LinkedList list, int value) {
@@ -93,35 +109,11 @@ public class LinkedList {
             node = node.next;
         }
         if (node == null) {
-            System.out.println("NO Found");
+            System.out.println("Value Not Found in LinkedList");
         } else {
-            System.out.println("DELETED");
+            System.out.println("Value Deleted From LinkedList");
         }
         return list;
-    }
-
-    public static void main(String[] args) {
-        LinkedList list = new LinkedList();
-        list.insert(list, 5);
-        list.insert(list, 6);
-        list.printList(list);
-        list.insertAtBeginning(list, 4);
-        list.insertAtBeginning(list, 8);
-        list.printList(list);
-        list.insertAtIndex(list, 2, 2);
-        list.printList(list);
-        list.insertAtIndex(list, 100, 10);
-        list.printList(list);
-        list.insertAtIndex(list, 4, 13);
-        list.printList(list);
-        list.deleteByIndex(list, 5);
-        list.printList(list);
-        list.delete(list, 5);
-        list.printList(list);
-        list.deleteByIndex(list, 5);
-        list.printList(list);
-        list.deleteByIndex(list, 4);
-        list.printList(list);
     }
 
     public LinkedList deleteByIndex(LinkedList list, int index) {
@@ -144,9 +136,34 @@ public class LinkedList {
                     node.next = node.next.next;
                 } else
                     System.out.println("Index Not Found");
-            } else
-                System.out.println("Not FOunt");
+            }
         }
         return list;
+    }
+
+    public LinkedList reverse(LinkedList list) {
+        Node currentNode = list.head, previous = null, nextNode = null;
+        if (currentNode == null)
+            System.out.println("NO LinkedList Found");
+        else {
+            while (currentNode != null) {
+                nextNode = currentNode.next;
+                currentNode.next = previous;
+                previous = currentNode;
+                currentNode = nextNode;
+            }
+            list.head = previous;
+        }
+        return list;
+    }
+
+    static class Node {
+        int value;
+        Node next;
+
+        public Node(int value) {
+            this.value = value;
+            this.next = null;
+        }
     }
 }
