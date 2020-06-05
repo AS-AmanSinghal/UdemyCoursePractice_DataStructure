@@ -142,15 +142,15 @@ public class LinkedList {
     }
 
     public LinkedList reverse(LinkedList list) {
-        Node currentNode = list.head, previous = null, nextNode = null;
+        Node currentNode = list.head, previous = null;
         if (currentNode == null)
             System.out.println("NO LinkedList Found");
         else {
             while (currentNode != null) {
-                nextNode = currentNode.next;
+                Node temp = currentNode.next;
                 currentNode.next = previous;
                 previous = currentNode;
-                currentNode = nextNode;
+                currentNode = temp;
             }
             list.head = previous;
         }
