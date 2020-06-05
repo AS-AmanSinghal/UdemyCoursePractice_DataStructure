@@ -17,19 +17,6 @@ public class DoublyLinkedList {
         list.printList(list);
         list.insertAtIndex(list, 3, 88);
         list.printList(list);
-//        list.deleteAtIndex(list,0);
-//        list.printList(list);
-//        list.deleteAtIndex(list,2);
-//        list.printList(list);
-//        list.deleteAtIndex(list,3);
-//        list.printList(list);
-//
-//        list.deleteAtIndex(list,0);
-//        list.printList(list);
-//
-//        list.deleteAtIndex(list,1);
-//        list.printList(list);
-
         list.deleteAtIndex(list, 0);
         list.printList(list);
     }
@@ -140,18 +127,6 @@ public class DoublyLinkedList {
         }
         return list;
     }
-
-//    public DoublyLinkedList reverse(DoublyLinkedList list){
-//        Node currentNode=list.head,previousNode=null,nextNode=null;
-//        if (currentNode==null)
-//            System.out.println("No Doubly LinkedList Found");
-//        else{
-//            while (currentNode!=null){
-//                nextNode=currentNode.next;
-//
-//            }
-//        }
-//    }
 
     public void printList(DoublyLinkedList list) {
         Node node = list.head;
