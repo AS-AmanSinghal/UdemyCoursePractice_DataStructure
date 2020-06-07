@@ -1,5 +1,5 @@
 package Stack;
-
+//Implementation of Queues Using Array
 public class Stack2 {
     int size = 6;
     int top;
