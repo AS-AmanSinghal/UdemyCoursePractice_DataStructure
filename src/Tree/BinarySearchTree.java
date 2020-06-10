@@ -12,7 +12,6 @@ public class BinarySearchTree {
         if (tree.root == null) {
             tree.root = newNode;
         } else {
-            System.out.println(tree.root.value + " " + tree.root.left + " " + tree.root.right);
             Node currentNode = tree.root;
             while (true) {
                 if (value < currentNode.value) {
@@ -30,7 +29,6 @@ public class BinarySearchTree {
                     currentNode = currentNode.right;
                 }
             }
-            System.out.println(tree.root.value + " " + tree.root.left + " " + tree.root.right);
         }
         return tree;
     }
